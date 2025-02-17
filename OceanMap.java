@@ -1,14 +1,12 @@
-
 public class OceanMap {
-    private boolean[][] oceanGrid;
-    private int dimensions;
+	boolean[][] oceanCell = new boolean[10][10];
 
-    public OceanMap(int dimensions) {
-        this.dimensions = dimensions;
-        oceanGrid = new boolean[dimensions][dimensions]; // false means empty, true can mean occupied (like islands later)
-    }
+	public boolean[][] getOceanCell() {
+		return oceanCell;
+	}
 
-    public boolean[][] getMap() {
-        return oceanGrid;
-    }
+	public void setOceanCell(boolean[][] oceanCell) {
+		this.oceanCell = oceanCell;
+	}
+	
 }
