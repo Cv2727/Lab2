@@ -1,40 +1,30 @@
-
-import javafx.geometry.Point2D;
-
+import java.awt.Point; // Use java.awt.Point explicitly
 public class Ship {
-    private Point2D currentLocation;
-    private OceanMap oceanMap;
+    private Point currentLocation; // Keep it private for encapsulation
 
-    public Ship(OceanMap map) {
-        this.oceanMap = map;
-        currentLocation = new Point2D(0, 0); // starting point for the ship
+    public Ship() {
+        this.currentLocation = new Point(4, 7); // Correct Point initialization
     }
-
-    public Point2D getCurrentLocation() {
+    public Point getCurrentLocation() {
         return currentLocation;
     }
-
+    public void setCurrentLocation(Point currentLocation) {
+        this.currentLocation = currentLocation;
+    }
     public void goEast() {
-        if (currentLocation.getX() < oceanMap.getMap().length - 1) {
-            currentLocation = new Point2D(currentLocation.getX() + 1, currentLocation.getY());
-        }
+        if (currentLocation.x + 1 < 10)
+            currentLocation.x += 1; // Correct way to update x
     }
-
     public void goWest() {
-        if (currentLocation.getX() > 0) {
-            currentLocation = new Point2D(currentLocation.getX() - 1, currentLocation.getY());
-        }
+        if (currentLocation.x - 1 >= 0)
+            currentLocation.x -= 1;
     }
-
     public void goNorth() {
-        if (currentLocation.getY() > 0) {
-            currentLocation = new Point2D(currentLocation.getX(), currentLocation.getY() - 1);
-        }
+        if (currentLocation.y - 1 >= 0)
+            currentLocation.y -= 1;
     }
-
     public void goSouth() {
-        if (currentLocation.getY() < oceanMap.getMap().length - 1) {
-            currentLocation = new Point2D(currentLocation.getX(), currentLocation.getY() + 1);
-        }
+        if (currentLocation.y + 1 < 10)
+            currentLocation.y += 1;
     }
 }
